@@ -4,7 +4,7 @@
 from operator import itemgetter
 from typing import Any, Callable, Dict, List, Optional
 
-from PyQt5.QtCore import QAbstractListModel, QVariant, QModelIndex, pyqtSlot, pyqtProperty, pyqtSignal
+from PyQt6.QtCore import QAbstractListModel, QVariant, QModelIndex, pyqtSlot, pyqtProperty, pyqtSignal
 
 
 class ListModel(QAbstractListModel):

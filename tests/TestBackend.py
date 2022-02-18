@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 
 import pytest
 
-import Arcus
+import pyArcus as Arcus
 
 from UM.Backend.Backend import Backend
 

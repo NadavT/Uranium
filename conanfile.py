@@ -10,7 +10,7 @@ class UraniumConan(ConanFile):
     author = "Ultimaker B.V."
     url = "https://github.com/Ultimaker/uranium"
     description = "A Python framework for building Desktop applications."
-    topics = ("conan", "python", "pyqt5", "qt", "3d-graphics", "3d-models", "python-framework")
+    topics = ("conan", "python", "pyqt6", "qt", "3d-graphics", "3d-models", "python-framework")
     settings = "os", "compiler", "build_type", "arch"
     revision_mode = "scm"
     build_policy = "missing"
@@ -36,8 +36,8 @@ class UraniumConan(ConanFile):
 
     def requirements(self):
         self.requires(f"python/3.10.2@python/stable")
-        self.requires(f"pyqt5/5.15.2@python/stable")
-        self.requires(f"arcus/[~=5.0.0-a]@ultimaker/testing")
+        self.requires(f"pyqt6/6.2.2@python/stable")
+        self.requires(f"pyarcus/5.0.0@ultimaker/testing")
         self.requires(f"scipy/1.8.0rc2@python/stable")
         self.requires(f"numpy/1.21.5@python/stable")
         self.requires(f"numpy-stl/2.10.1@python/stable")

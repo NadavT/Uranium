@@ -127,15 +127,15 @@ class Backend(PluginObject):
         """Start the (external) backend process."""
 
         kwargs = {} #type: Dict[str, Any]
-        if sys.platform == "win32":
-            su = subprocess.STARTUPINFO()
-            su.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-            su.wShowWindow = subprocess.SW_HIDE
-            kwargs["startupinfo"] = su
+        # if sys.platform == "win32":
+        #     su = subprocess.STARTUPINFO()
+        #     su.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        #     su.wShowWindow = subprocess.SW_HIDE
+        #     kwargs["startupinfo"] = su
         try:
             # STDIN needs to be None because we provide no input, but communicate via a local socket instead. The NUL device sometimes doesn't exist on some computers.
             # STDOUT and STDERR need to be pipes because we'd like to log the output on those channels into the application log.
-            return subprocess.Popen(command_list, stdin = None, stdout = subprocess.PIPE, stderr = subprocess.PIPE, **kwargs)
+            return subprocess.Popen(command_list, stdin = None, stdout = subprocess.PIPE, stderr = subprocess.PIPE, creationflags=subprocess.CREATE_NEW_CONSOLE, **kwargs)
         except PermissionError:
             Logger.log("e", "Couldn't start back-end: No permission to execute process.")
         except FileNotFoundError:
